@@ -29,7 +29,9 @@ app.post('/webhook', (req, res) => {
   console.log(JSON.stringify(req.body, null, 2));
   res.status(200).end();
 });
-
+app.get('/send', (req, res) => {
+  res.send('WhatsApp test route working!');
+});
 // Start the server
 
 app.listen(port, () => {
