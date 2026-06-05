@@ -30,41 +30,6 @@ app.post('/webhook', (req, res) => {
   res.status(200).end();
 });
 
-app.get('/send', async (req, res) => {
-  try {
-
-    const response = await fetch(
-      `https://graph.facebook.com/v23.0/${process.env.1080791958459902}/messages`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.VERIFY_TOKEN}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          messaging_product: 'whatsapp',
-          to: '919694610144',
-          type: 'text',
-          text: {
-            body: 'Hello from Render!'
-          }
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    res.json(data);
-
-  } catch (error) {
-
-    res.status(500).json({
-      error: error.message
-    });
-
-  }
-});
-
 // Start the server
 
 app.listen(port, () => {
