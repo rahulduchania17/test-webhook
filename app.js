@@ -30,7 +30,6 @@ app.post('/webhook', (req, res) => {
   res.status(200).end();
 });
 
-// Start the server
 app.get('/send', async (req, res) => {
   try {
 
@@ -65,6 +64,9 @@ app.get('/send', async (req, res) => {
 
   }
 });
+
+// Start the server
+
 app.listen(port, () => {
   console.log(`\nListening on port ${port}\n`);
 });
